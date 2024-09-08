@@ -4,7 +4,6 @@
  */
 package edu.ijse.mvc.view;
 
-import edu.ijse.mvc.controller.CustomerController;
 import edu.ijse.mvc.controller.OrderDetailController;
 import edu.ijse.mvc.dto.OrderDetailDto;
 import java.util.ArrayList;
