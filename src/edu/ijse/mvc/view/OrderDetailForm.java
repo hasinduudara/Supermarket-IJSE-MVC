@@ -4,7 +4,10 @@
  */
 package edu.ijse.mvc.view;
 
+import edu.ijse.mvc.controller.CustomerController;
+import edu.ijse.mvc.controller.OrderDetailController;
 import edu.ijse.mvc.dto.OrderDetailDto;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 
@@ -13,11 +16,13 @@ import javax.swing.JOptionPane;
  * @author hasid
  */
 public class OrderDetailForm extends javax.swing.JFrame {
+    private final OrderDetailController ORDERDETAIL_CONTROLLER;
 
     /**
      * Creates new form OrderDetailForm
      */
     public OrderDetailForm() {
+        ORDERDETAIL_CONTROLLER = new OrderDetailController();
         initComponents();
         loadTable();
     }
@@ -183,7 +188,7 @@ public class OrderDetailForm extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         saveOrderDetail();
-        //clearForm();
+        clearForm();
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
@@ -217,12 +222,6 @@ public class OrderDetailForm extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new OrderDetailForm().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -250,6 +249,22 @@ private void loadTable(){
             } 
         };
         orderdetailTable.setModel(dtm);
+        
+        try {
+            ArrayList<OrderDetailDto> orderdetailDtoList = ORDERDETAIL_CONTROLLER.getAllOrderDetail();
+            for (OrderDetailDto OrderDetailDto : orderdetailDtoList) {
+                Object[] rowData = {
+                    OrderDetailDto.getOrderIDTextField(),
+                    OrderDetailDto.getItemCodeTextField(),
+                    OrderDetailDto.getOrderQTYTextField(),
+                    OrderDetailDto.getDiscountTextField()
+                };
+                dtm.addRow(rowData);
+            }
+        } catch (Exception e) {
+            System.out.println("Exception");
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }
 
 private void saveOrderDetail(){
@@ -278,6 +293,10 @@ private void clearForm(){
     private static class ORDERDETAIL_CONTROLLER {
 
         private static String saveOrderDetail(OrderDetailDto orderdetailDto) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        private static ArrayList<OrderDetailDto> getAllorderDetail() {
             throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
 
