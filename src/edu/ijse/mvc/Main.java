@@ -5,12 +5,13 @@
 package edu.ijse.mvc;
 import edu.ijse.mvc.view.Itemform;
 import edu.ijse.mvc.db.DBConnection;
-import edu.ijse.mvc.view.Customerform;;
+import edu.ijse.mvc.view.Customerform;
+import edu.ijse.mvc.view.OrderDetailForm;
 
 
 /**
  *
- * @author Charuka
+ * @author Hasindu Udara
  */
 public class Main {
 
@@ -20,7 +21,8 @@ public class Main {
     public static void main(String[] args) throws Exception{
         DBConnection.getInstance().getConnection();
         //new Itemform().setVisible(true);
-        new Customerform().setVisible(true);
+        //new Customerform().setVisible(true);   
+        new OrderDetailForm().setVisible(true);
     }
     
 }
