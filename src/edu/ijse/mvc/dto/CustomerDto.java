@@ -21,8 +21,7 @@ public class CustomerDto {
     private String postalCode;
     
 
-    public CustomerDto() {
-        
+    public CustomerDto() {  
     }
 
     public CustomerDto(String custID, String custTitle, String custName, java.sql.Date DOB, double salary, String custAddress, String city, String province, String postalCode) {

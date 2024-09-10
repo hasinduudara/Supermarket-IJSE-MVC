@@ -324,18 +324,5 @@ private void clearForm(){
         discountTextField.setText("");
     }
 
-//    private static class ORDERDETAIL_CONTROLLER {
-//
-//        private static String saveOrderDetail(OrderDetailDto orderdetailDto) {
-//            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//        }
-//
-//        private static ArrayList<OrderDetailDto> getAllorderDetail() {
-//            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//        }
-//
-//        public ORDERDETAIL_CONTROLLER() {
-//        }
-//    }
 
 }

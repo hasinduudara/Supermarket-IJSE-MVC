@@ -7,11 +7,12 @@ import edu.ijse.mvc.view.Itemform;
 import edu.ijse.mvc.db.DBConnection;
 import edu.ijse.mvc.view.Customerform;
 import edu.ijse.mvc.view.OrderDetailForm;
+import edu.ijse.mvc.view.OrdersForm;
 
 
 /**
  *
- * @author Hasindu Udara
+ * @author hasid
  */
 public class Main {
 
@@ -22,7 +23,8 @@ public class Main {
         DBConnection.getInstance().getConnection();
         //new Itemform().setVisible(true);
         //new Customerform().setVisible(true);   
-        new OrderDetailForm().setVisible(true);
+        //new OrderDetailForm().setVisible(true);
+        new OrdersForm().setVisible(true);
     }
     
 }

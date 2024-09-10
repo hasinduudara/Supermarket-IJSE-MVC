@@ -5,7 +5,6 @@
 package edu.ijse.mvc.model;
 
 import edu.ijse.mvc.db.DBConnection;
-import edu.ijse.mvc.dto.CustomerDto;
 import edu.ijse.mvc.dto.OrderDetailDto;
 import java.util.ArrayList;
 

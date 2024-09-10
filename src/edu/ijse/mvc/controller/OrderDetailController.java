@@ -4,7 +4,6 @@
  */
 package edu.ijse.mvc.controller;
 
-import edu.ijse.mvc.dto.CustomerDto;
 import edu.ijse.mvc.dto.OrderDetailDto;
 import edu.ijse.mvc.model.OrderDetailModel;
 import java.sql.SQLException;
