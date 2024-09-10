@@ -5,6 +5,7 @@
 package edu.ijse.mvc.model;
 
 import edu.ijse.mvc.db.DBConnection;
+import edu.ijse.mvc.dto.CustomerDto;
 import edu.ijse.mvc.dto.OrderDetailDto;
 import java.util.ArrayList;
 
@@ -51,4 +52,29 @@ public class OrderDetailModel {
         int result = statement.executeUpdate();
         return result > 0 ? "Successful" : "Fail";
     }
+    
+    public String deleteOrderDetail(String orderID) throws ClassNotFoundException, SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
+        String sql = "DELETE FROM orderdetail WHERE OrderID = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        
+        statement.setString(1, orderID);
+        int result = statement.executeUpdate();
+        return result > 0 ? "Successfully Deleted" : "Delete Failed";
+    }
+    
+    public String updateOrderDetail(OrderDetailDto Dto) throws ClassNotFoundException, SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
+        String sql = "UPDATE orderdetail SET OrderID = ?, ItemCode = ?, OrderQTY = ?, Discount = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        
+        statement.setString(1, Dto.getOrderIDTextField());
+        statement.setString(2, Dto.getItemCodeTextField());
+        statement.setInt(3, Dto.getOrderQTYTextField());
+        statement.setDouble(4, Dto.getDiscountTextField());
+         
+        int result = statement.executeUpdate();
+        return result > 0 ? "SuccessFully Updated " : " Update Failed ";
+    }
+    
 }

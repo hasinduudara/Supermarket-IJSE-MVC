@@ -4,6 +4,7 @@
  */
 package edu.ijse.mvc.controller;
 
+import edu.ijse.mvc.dto.CustomerDto;
 import edu.ijse.mvc.dto.OrderDetailDto;
 import edu.ijse.mvc.model.OrderDetailModel;
 import java.sql.SQLException;
@@ -29,4 +30,15 @@ public class OrderDetailController {
         String resp = ORDERDETAIL_MODEL.saveOrderDetail(orderdetailDto);
         return resp;
     }
+    
+    public String deleteOrderDetail(String orderID) throws ClassNotFoundException, SQLException {
+        String resp = ORDERDETAIL_MODEL.deleteOrderDetail(orderID);
+        return resp;
+    }
+    
+    public String updateOrderDetail(OrderDetailDto orderdetailDto) throws ClassNotFoundException, SQLException {
+        String resp = ORDERDETAIL_MODEL.updateOrderDetail(orderdetailDto);
+        return resp;
+    }
+    
 }

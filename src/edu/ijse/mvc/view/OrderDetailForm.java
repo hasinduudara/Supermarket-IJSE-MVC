@@ -182,7 +182,8 @@ public class OrderDetailForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        // TODO add your handling code here:
+        updateOrderDetail();
+        clearForm();
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
@@ -191,7 +192,8 @@ public class OrderDetailForm extends javax.swing.JFrame {
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
+        deleteOrderDetail();
+        clearForm();
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     /**
@@ -282,6 +284,39 @@ private void saveOrderDetail(){
         }
     }
 
+private void deleteOrderDetail(){
+        String orderID = orderIDTextField.getText();
+        try {
+            String resp = ORDERDETAIL_CONTROLLER.deleteOrderDetail(orderID);
+            JOptionPane.showMessageDialog(this,resp);
+            loadTable();
+            clearForm();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,e.getMessage());
+        }
+    }
+
+private void updateOrderDetail(){
+        OrderDetailDto orderdetailDto = new OrderDetailDto(              
+                orderIDTextField.getText(),
+                itemCodeTextField.getText(),
+                Integer.parseInt(orderQTYTextField.getText()),
+                Double.parseDouble(discountTextField.getText())
+        );
+        
+        try {
+            String resp = ORDERDETAIL_CONTROLLER.updateOrderDetail(orderdetailDto);
+            JOptionPane.showMessageDialog(this, resp);
+            loadTable();
+            clearForm();
+            
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e.getMessage());
+            }
+        
+        }
+
 private void clearForm(){
         orderIDTextField.setText("");
         itemCodeTextField.setText("");
@@ -289,18 +324,18 @@ private void clearForm(){
         discountTextField.setText("");
     }
 
-    private static class ORDERDETAIL_CONTROLLER {
-
-        private static String saveOrderDetail(OrderDetailDto orderdetailDto) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-
-        private static ArrayList<OrderDetailDto> getAllorderDetail() {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-
-        public ORDERDETAIL_CONTROLLER() {
-        }
-    }
+//    private static class ORDERDETAIL_CONTROLLER {
+//
+//        private static String saveOrderDetail(OrderDetailDto orderdetailDto) {
+//            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//        }
+//
+//        private static ArrayList<OrderDetailDto> getAllorderDetail() {
+//            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//        }
+//
+//        public ORDERDETAIL_CONTROLLER() {
+//        }
+//    }
 
 }

@@ -364,7 +364,6 @@ public class Customerform extends javax.swing.JFrame {
     
     
     private void updateCustomer(){
-        
         CustomerDto customerDto = new CustomerDto(
                 
                 txtCusId.getText(),
